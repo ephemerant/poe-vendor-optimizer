@@ -37,7 +37,7 @@ app.controller("main", function($scope) {
 
   function calculateCombination() {
     var combination = smallest( // Get the optimal combination of items
-        40, vm.items.slice().sort(function(a, b) { return a.quality < b.quality }));
+        40, vm.items.slice());
 
     if (combination.length) { // Set new combination and quality
         vm.combination = combination;
@@ -49,7 +49,3 @@ app.controller("main", function($scope) {
     }
   }
 });
-
-// var A = smallest(40, [
-//     10, 13, 10, 8, 7, 8
-// ].sort(function(a, b) { return a < b }));
