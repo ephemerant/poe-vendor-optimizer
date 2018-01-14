@@ -1,0 +1,93 @@
+body {
+    max-width: 1024px;
+    margin: 10px auto;
+    background: #111;
+    color: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+#paste {
+    position: fixed;
+    opacity: 0;
+    z-index: -1;
+}
+
+.items {
+    margin: 20px 0;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+}
+
+.item {
+    border: 2px solid white;
+    display: inline-block;
+    width: 150px;
+    height: 100px;
+    padding: 10px;
+    margin: 5px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.item .quality {
+    font-size: 150%;
+    font-weight: bold;
+    display: block;
+    margin: 10px;
+}
+
+.item .quality.optimal {
+    color: #77ff77;
+}
+
+.big-label, .clear {
+    font-size: 150%;
+    font-weight: bold;
+}
+
+.clear {
+    color: #f00;
+    cursor: pointer;
+    float: right;
+    margin-left: 20px;
+}
+
+.clear.optimal {
+    color: #77ff77;
+}
+
+.big-label .no-quality {
+    color: #f00;
+}
+
+.big-label .quality {
+    color: #77ff77;
+}
+
+.item .delete {
+    font-size: 150%;
+    font-weight: bold;
+    color: #f00;
+    float: right;
+    cursor: pointer;
+}
+
+.item.magic {
+    border-color: #8888ff;
+    color: #8888ff;
+}
+
+.item.rare {
+    border-color: #ffff77;
+    color: #ffff77;
+}
+
+.item.unique {
+    border-color: #af6025;
+    color: #af6025;
+}
+
+.item.optimal {
+    border-color: #77ff77;
+}

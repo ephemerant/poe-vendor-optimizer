@@ -1,0 +1,56 @@
+<script src="lib/angular.min.js"></script>
+<script src="lib/jquery-3.2.1.min.js"></script>
+<script src="functions.js"></script>
+<script src="app.js"></script>
+
+<link href="style.css" rel="stylesheet">
+
+<body ng-app="app" ng-controller="main">
+    <!-- Hidden textarea that reads pasted data -->
+    <textarea id="paste" autofocus></textarea>
+    <!-- Results "command area" -->
+    <div class="results">
+        <span class="big-label">
+            Optimal Quality Total:
+            <span ng-class="{ 'no-quality': !quality, 'quality': quality }">{{quality || 'None'}}</span>
+        </span>
+        <span class="clear" ng-click="clearItems()" ng-if="items.length">
+            Clear All
+        </span>
+        <span class="clear optimal" ng-click="clearOptimal()" ng-if="combination.length">
+            Clear Optimal
+        </span>
+    </div>
+    <!-- List of pasted items -->
+    <div class="items">
+        <div class="item {{item.rarity.toLowerCase()}}" ng-class="{ 'optimal': combination.indexOf(item) !== -1 }" ng-repeat="item in items track by $index">
+            <span class="delete" ng-click="deleteItem($index)">
+                &times;
+            </span>
+            <span class="quality" ng-class="{ 'optimal': combination.indexOf(item) !== -1 }">
+                {{item.quality}}%
+            </span>
+            {{item.name}}
+        </div>
+    </div>
+</body>
+
+<script>
+    $(document).ready(function () {
+        var $paste = $('#paste');
+
+        $paste.on('paste', function (e) { // Detect when an item is pasted into the textarea
+            setTimeout(function () {
+                var data = processData($paste.val()); // Process pasted data
+                $paste.val(''); // Clear textarea
+
+                if (data) // Send the data to Angualr
+                    angular.element($('[ng-controller]')).scope().$broadcast('itemProcessed', data);
+            }, 0)
+        });
+
+        $paste.on('blur', function () { // Keep the textarea focused
+            $paste.focus();
+        });
+    });
+</script>
