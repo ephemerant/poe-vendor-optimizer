@@ -1,7 +1,7 @@
 # Path of Exile Vendor Optimalizer
 Calculates the lowest possible combination of items to reach the 40% quality item threshold
 
-# Sample Item Data #1 (copy and paste from raw)
+# Sample Item Data (copy and paste from raw)
 Rarity: Normal
 Superior Hallowed Life Flask
 --------
@@ -17,7 +17,6 @@ Item Level: 76
 --------
 Right click to drink. Can only hold charges while in belt. Refills as you kill monsters.
 
-# Sample Item Data #2  (copy and paste from raw)
 Rarity: Magic
 Superior Eternal Mana Flask
 --------
