@@ -52,5 +52,9 @@
         $paste.on('blur', function () { // Keep the textarea focused
             $paste.focus();
         });
+
+        $(document).click(function() { // Provide backup way of regaining focus
+            $paste.focus();
+        })
     });
 </script>
